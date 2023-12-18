@@ -22,10 +22,42 @@ public class MathControllerTest {
 
     @Test
     public void doMathOperation_Success(){
-        DoMathRequestDto dto = new DoMathRequestDto(2, 5, "+");
+        DoMathRequestDTO dto = new DoMathRequestDTO(2, 5, "+");
 
-        ResponseEntity<ApiResponse> response = this.restTemplate.postForEntity("/api/v1/do_math",dto,ApiResponse.class);
+        ResponseEntity<ApiResponse> response = this.restTemplate.postForEntity("/api/v1/doMath",dto,ApiResponse.class);
 
         assertEquals(200, response.getStatusCode().value());
+    }
+    @Test
+    public void doMathOperation_Addition(){
+        DoMathRequestDTO dto = new DoMathRequestDTO(2, 5, "+");
+
+        ResponseEntity<ApiResponse> response = this.restTemplate.postForEntity("/api/v1/doMath",dto,ApiResponse.class);
+
+        assertEquals(7.0, response.getBody().getData());
+    }
+    @Test
+    public void doMathOperation_Subtraction(){
+        DoMathRequestDTO dto = new DoMathRequestDTO(5, 2, "-");
+
+        ResponseEntity<ApiResponse> response = this.restTemplate.postForEntity("/api/v1/doMath",dto,ApiResponse.class);
+
+        assertEquals(3.0, response.getBody().getData());
+    }
+    @Test
+    public void doMathOperation_Division(){
+        DoMathRequestDTO dto = new DoMathRequestDTO(6, 2, "/");
+
+        ResponseEntity<ApiResponse> response = this.restTemplate.postForEntity("/api/v1/doMath",dto,ApiResponse.class);
+
+        assertEquals(3.0, response.getBody().getData());
+    }
+    @Test
+    public void doMathOperation_Multiplication(){
+        DoMathRequestDTO dto = new DoMathRequestDTO(6, 2, "*");
+
+        ResponseEntity<ApiResponse> response = this.restTemplate.postForEntity("/api/v1/doMath",dto,ApiResponse.class);
+
+        assertEquals(12.0, response.getBody().getData());
     }
 }
