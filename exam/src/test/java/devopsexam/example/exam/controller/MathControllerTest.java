@@ -10,8 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
-import devopsexam.example.exam.dtos.DoMathRequestDto;
 import devopsexam.example.exam.payload.ApiResponse;
+import devopsexam.example.exam.dtos.DoMathRequestDto;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -22,7 +22,7 @@ public class MathControllerTest {
 
     @Test
     public void doMathOperation_Success(){
-        DoMathRequestDTO dto = new DoMathRequestDTO(2, 5, "+");
+        DoMathRequestDto dto = new DoMathRequestDto(2, 5, "+");
 
         ResponseEntity<ApiResponse> response = this.restTemplate.postForEntity("/api/v1/doMath",dto,ApiResponse.class);
 
@@ -30,7 +30,7 @@ public class MathControllerTest {
     }
     @Test
     public void doMathOperation_Addition(){
-        DoMathRequestDTO dto = new DoMathRequestDTO(2, 5, "+");
+        DoMathRequestDto dto = new DoMathRequestDto(2, 5, "+");
 
         ResponseEntity<ApiResponse> response = this.restTemplate.postForEntity("/api/v1/doMath",dto,ApiResponse.class);
 
@@ -38,7 +38,7 @@ public class MathControllerTest {
     }
     @Test
     public void doMathOperation_Subtraction(){
-        DoMathRequestDTO dto = new DoMathRequestDTO(5, 2, "-");
+        DoMathRequestDto dto = new DoMathRequestDto(5, 2, "-");
 
         ResponseEntity<ApiResponse> response = this.restTemplate.postForEntity("/api/v1/doMath",dto,ApiResponse.class);
 
@@ -46,7 +46,7 @@ public class MathControllerTest {
     }
     @Test
     public void doMathOperation_Division(){
-        DoMathRequestDTO dto = new DoMathRequestDTO(6, 2, "/");
+        DoMathRequestDto dto = new DoMathRequestDto(6, 2, "/");
 
         ResponseEntity<ApiResponse> response = this.restTemplate.postForEntity("/api/v1/doMath",dto,ApiResponse.class);
 
@@ -54,7 +54,7 @@ public class MathControllerTest {
     }
     @Test
     public void doMathOperation_Multiplication(){
-        DoMathRequestDTO dto = new DoMathRequestDTO(6, 2, "*");
+        DoMathRequestDto dto = new DoMathRequestDto(6, 2, "*");
 
         ResponseEntity<ApiResponse> response = this.restTemplate.postForEntity("/api/v1/doMath",dto,ApiResponse.class);
 
